@@ -15,13 +15,9 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.User.UserBuilder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -84,13 +80,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	}
-//@Bean
-//public UserDetailsService userDetailsService() {
-//	UserBuilder users= User.builder();
-//	InMemoryUserDetailsManager manager=new InMemoryUserDetailsManager();
-//	manager.createUser(users.username("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("ADMIN").build());
-//	return manager;
-//
-//}
+
 	
 }
