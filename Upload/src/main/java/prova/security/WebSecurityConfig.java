@@ -84,12 +84,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", config);
 		return new CorsFilter(source);
 	}
-@Bean
-public UserDetailsService userDetailsService() {
-	UserBuilder users= User.builder();
-	InMemoryUserDetailsManager manager=new InMemoryUserDetailsManager();
-	manager.createUser(users.username("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("ADMIN").build());
-	return manager;
-
-}
+//@Bean
+//public UserDetailsService userDetailsService() {
+//	UserBuilder users= User.builder();
+//	InMemoryUserDetailsManager manager=new InMemoryUserDetailsManager();
+//	manager.createUser(users.username("admin").password(new BCryptPasswordEncoder().encode("admin")).roles("ADMIN").build());
+//	return manager;
+//
+//}
+	
 }
