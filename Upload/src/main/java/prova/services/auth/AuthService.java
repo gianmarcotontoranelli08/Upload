@@ -38,7 +38,7 @@ public class AuthService {
 	 */
 	public UserDetails authenticate(User user) throws Exception {
 
-		UserDetails loadUserByUsername = userDetailsService.loadUserByUsername(user.getEmail());
+		UserDetails loadUserByUsername = userDetailsService.loadUserByUsername(user.getUsername());
 
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
 				loadUserByUsername.getUsername(), user.getPassword());
