@@ -1,5 +1,5 @@
 package prova.services;
 
-public interface UserServiceImpl {
+public class UserServiceImpl {
 
 }

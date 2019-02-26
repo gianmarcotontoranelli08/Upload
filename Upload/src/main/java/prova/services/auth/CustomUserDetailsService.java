@@ -2,6 +2,7 @@ package prova.services.auth;
 import java.util.ArrayList;
 
 
+
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -14,8 +15,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.alfonso.depascale.model.User;
-import it.alfonso.depascale.services.UserService;
+import prova.model.User;
+import prova.services.UserServiceImpl;
+
+
+
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -23,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 	private static final Logger logger = Logger.getLogger(CustomUserDetailsService.class.getName());
 
 	@Autowired
-	private UserService userService;
+	private UserServiceImpl userService;
 
 	@Override
 	@Transactional(readOnly = true)
