@@ -16,6 +16,7 @@ public class User {
 	private String username;
 	@NotNull
 	private String password;
+	UserProfileType userProfileType;
 
 	public long getId() {
 		return id;
@@ -46,6 +47,14 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public UserProfileType getUserProfileType() {
+		return userProfileType;
+	}
+
+	public void setUserProfileType(UserProfileType userProfileType) {
+		this.userProfileType = userProfileType;
 	}
 
 	public User() {
