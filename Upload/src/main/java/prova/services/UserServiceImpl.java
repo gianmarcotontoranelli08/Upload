@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import prova.exception.BadRequest;
 import prova.model.User;
+import prova.model.UserProfileType;
 import prova.repository.UserRepository;
 
 @Service
@@ -38,6 +39,7 @@ UserRepository user_repo;
 
 		}
 		if(ok) {
+			user.setUserProfileType(UserProfileType.ROLE_USER);
 			user_repo.save(user);
 			return new ResponseEntity<User>(HttpStatus.OK);
 		}else
