@@ -47,4 +47,10 @@ UserRepository user_repo;
 			return new ResponseEntity<User>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
+	@Override
+	public User findByEmail(String email) {
+		// TODO Auto-generated method stub
+		return user_repo.findByEmail(email);
+	}
+
 }

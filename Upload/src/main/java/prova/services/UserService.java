@@ -9,5 +9,7 @@ public interface UserService {
 
 	public User findByUsername(String username);
 	
+	public User findByEmail(String email);
+	
 	public ResponseEntity<User> registra(User user) throws BadRequest;
 }
