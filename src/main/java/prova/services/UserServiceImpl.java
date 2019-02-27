@@ -69,9 +69,11 @@ public class UserServiceImpl implements UserService {
 		Users user = user_repo.findByEmail(auth.getName());
 		if (user == null) {
 			throw new BadRequest("001", "Utente non trovato");
-		} else
+		} else {
 			user.setImmagine(immagine);
-		user_repo.save(user);
+			user_repo.save(user);
+			
+		}
 		return "immagine modificata";
 	}
 
