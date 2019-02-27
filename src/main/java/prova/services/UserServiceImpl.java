@@ -15,9 +15,9 @@ import prova.model.UserProfileType;
 import prova.repository.UserRepository;
 
 @Service
-public class UserServiceImpl implements UserService{
-@Autowired
-UserRepository user_repo;
+public class UserServiceImpl implements UserService {
+	@Autowired
+	UserRepository user_repo;
 
 	@Override
 	public Users findByUsername(String username) {
@@ -38,11 +38,11 @@ UserRepository user_repo;
 				ok = true;
 			}
 		}
-		if(ok) {
+		if (ok) {
 			user.setUserProfileType(UserProfileType.ROLE_USER);
 			user_repo.save(user);
 			return new ResponseEntity<Users>(HttpStatus.OK);
-		}else
+		} else
 			return new ResponseEntity<Users>(HttpStatus.NOT_ACCEPTABLE);
 	}
 
@@ -53,14 +53,26 @@ UserRepository user_repo;
 	}
 
 	@Override
-	public String stampa() throws BadRequest{
-		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
-		Users user=user_repo.findByEmail(auth.getName());
-		if(user==null) {
+	public String stampa() throws BadRequest {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Users user = user_repo.findByEmail(auth.getName());
+		if (user == null) {
 			throw new BadRequest("001", "utente non trovato");
-		}else
-			
-		return "ciao";
+		} else
+
+			return "ciao";
+	}
+
+	@Override
+	public String modificaImmagine(String immagine) throws BadRequest {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		Users user = user_repo.findByEmail(auth.getName());
+		if (user == null) {
+			throw new BadRequest("001", "Utente non trovato");
+		} else
+			user.setImmagine(immagine);
+		user_repo.save(user);
+		return "immagine modificata";
 	}
 
 }

@@ -1,6 +1,8 @@
 package prova.model;
 
 
+
+
 import javax.persistence.Entity;
 
 import javax.persistence.GeneratedValue;
@@ -21,6 +23,7 @@ public class Users {
 	@NotNull
 	private String password;
 	UserProfileType userProfileType;
+	private String immagine;
 
 	public long getId() {
 		return id;
@@ -59,6 +62,14 @@ public class Users {
 
 	public void setUserProfileType(UserProfileType userProfileType) {
 		this.userProfileType = userProfileType;
+	}
+
+	public String getImmagine() {
+		return immagine;
+	}
+
+	public void setImmagine(String immagine) {
+		this.immagine = immagine;
 	}
 
 	public Users() {

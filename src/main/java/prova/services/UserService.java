@@ -1,5 +1,6 @@
 package prova.services;
 
+
 import org.springframework.http.ResponseEntity;
 
 import prova.exception.BadRequest;
@@ -13,4 +14,5 @@ public interface UserService {
 	
 	public ResponseEntity<Users> registra(Users user) throws BadRequest;
 	public String stampa() throws BadRequest;
+	public String modificaImmagine(String immagine) throws BadRequest;
 }
