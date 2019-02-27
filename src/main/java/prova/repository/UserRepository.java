@@ -2,12 +2,12 @@ package prova.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import prova.model.User;
+import prova.model.Users;
 
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserRepository extends JpaRepository<Users, Long>{
 
-	public User findByUsername(String username);
-	public User findById(long id);
-	public User findByEmail(String email);
+	public Users findByUsername(String username);
+	public Users findById(long id);
+	public Users findByEmail(String email);
 	
 }

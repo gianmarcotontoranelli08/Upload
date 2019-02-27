@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import prova.exception.BadRequest;
-import prova.model.User;
+import prova.model.Users;
 import prova.services.UserService;
 import prova.services.auth.AuthService;
 
@@ -19,21 +19,26 @@ public class UserController {
 
 	@Autowired
 	private UserService user_service;
-	
+
 	@Autowired
 	private AuthService auth_service;
-	
+
 	@Autowired
 	private PasswordEncoder encoder;
-	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-    public ResponseEntity<User> registraUser(@RequestBody User user) throws BadRequest {
-    	user.setPassword(encoder.encode(user.getPassword()));
-    	return user_service.registra(user);
-    }
-@RequestMapping(value="/login",method=RequestMethod.POST)
- public UserDetails authenticate(@RequestBody User user)throws Exception{
-	return auth_service.authenticate(user);
 
+	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	public ResponseEntity<Users> registraUser(@RequestBody Users user) throws BadRequest {
+		user.setPassword(encoder.encode(user.getPassword()));
+		return user_service.registra(user);
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public UserDetails authenticate(@RequestBody Users user) throws Exception {
+		return auth_service.authenticate(user);
+
+	}
+@RequestMapping(value = "/stampa", method = RequestMethod.GET)
+public String stampa() throws BadRequest{
+	return user_service.stampa();
 }
 }

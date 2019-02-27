@@ -3,13 +3,14 @@ package prova.services;
 import org.springframework.http.ResponseEntity;
 
 import prova.exception.BadRequest;
-import prova.model.User;
+import prova.model.Users;
 
 public interface UserService {
 
-	public User findByUsername(String username);
+	public Users findByUsername(String username);
 	
-	public User findByEmail(String email);
+	public Users findByEmail(String email);
 	
-	public ResponseEntity<User> registra(User user) throws BadRequest;
+	public ResponseEntity<Users> registra(Users user) throws BadRequest;
+	public String stampa() throws BadRequest;
 }
