@@ -31,7 +31,7 @@ public class UserController {
     	user.setPassword(encoder.encode(user.getPassword()));
     	return user_service.registra(user);
     }
-@RequestMapping(value="/login",method=RequestMethod.GET)
+@RequestMapping(value="/login",method=RequestMethod.POST)
  public UserDetails authenticate(@RequestBody User user)throws Exception{
 	return auth_service.authenticate(user);
 
