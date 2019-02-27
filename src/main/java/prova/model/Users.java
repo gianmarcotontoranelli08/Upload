@@ -10,7 +10,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="utenti")
-public class User {
+public class Users {
 	@Id
 	@GeneratedValue
 	long id;
@@ -61,7 +61,7 @@ public class User {
 		this.userProfileType = userProfileType;
 	}
 
-	public User() {
+	public Users() {
 		super();
 	}
 

@@ -14,8 +14,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.core.userdetails.User;
 
-import prova.model.User;
+import prova.model.Users;
 import prova.services.UserServiceImpl;
 
 
@@ -32,17 +33,17 @@ public class CustomUserDetailsService implements UserDetailsService {
 	@Override
 	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = userService.findByEmail(email);
+		Users user = userService.findByEmail(email);
 		logger.info("User: " + email);
 		if (user == null) {
 			logger.info("User not found");
 			throw new UsernameNotFoundException("Username not found");
 		}
-		return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), true,
+		return new User(user.getEmail(), user.getPassword(), true,
 				true, true, true, getGrantedAuthorities(user));
 	}
 
-	private List<GrantedAuthority> getGrantedAuthorities(User user) {
+	private List<GrantedAuthority> getGrantedAuthorities(Users user) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
 		authorities.add(new SimpleGrantedAuthority("" + user.getUserProfileType()));

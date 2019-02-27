@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
-import prova.model.User;
+import prova.model.Users;
 
 
 
@@ -36,7 +36,7 @@ public class AuthService {
 	 * @return
 	 * @throws Exception
 	 */
-	public UserDetails authenticate(User user) throws Exception {
+	public UserDetails authenticate(Users user) throws Exception {
 
 		UserDetails loadUserByUsername = userDetailsService.loadUserByUsername(user.getEmail());
 
