@@ -12,4 +12,5 @@ public interface UserService {
 	public Users findByEmail(String email);
 	
 	public ResponseEntity<Users> registra(Users user) throws BadRequest;
+	public String stampa() throws BadRequest;
 }

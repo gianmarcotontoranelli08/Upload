@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import prova.exception.BadRequest;
@@ -48,6 +50,17 @@ UserRepository user_repo;
 	public Users findByEmail(String email) {
 		// TODO Auto-generated method stub
 		return user_repo.findByEmail(email);
+	}
+
+	@Override
+	public String stampa() throws BadRequest{
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		Users user=user_repo.findByEmail(auth.getName());
+		if(user==null) {
+			throw new BadRequest("001", "utente non trovato");
+		}else
+			
+		return "ciao";
 	}
 
 }

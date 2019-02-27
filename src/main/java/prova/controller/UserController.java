@@ -37,4 +37,8 @@ public class UserController {
 		return auth_service.authenticate(user);
 
 	}
+@RequestMapping(value = "/stampa", method = RequestMethod.GET)
+public String stampa() throws BadRequest{
+	return user_service.stampa();
+}
 }
